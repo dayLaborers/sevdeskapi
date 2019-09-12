@@ -25,7 +25,7 @@
             "Daylaborers\\Sevdeskapi\\": "src/"
         }
     },
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "require": {
         "guzzlehttp/guzzle": "^6.3"
     }
