@@ -1,0 +1,32 @@
+{
+    "name": "daylaborers/sevdeskapi",
+    "description": "This package allows you to connect your laravel application with sevDesk",
+    "keywords": [
+        "sevDesk",
+        "laravel"
+    ],
+    "homepage": "https://www.daylaborers.de",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ralf Kronen",
+            "email": "ralf.kronen@daylaborers.de"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Daylaborers\\Sevdeskapi\\sevDeskApiServiceProvider"
+            ]
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Daylaborers\\Sevdeskapi\\": "src/"
+        }
+    },
+    "minimum-stability": "stable",
+    "require": {
+        "guzzlehttp/guzzle": "^6.3"
+    }
+}
