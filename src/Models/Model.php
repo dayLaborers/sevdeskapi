@@ -177,37 +177,26 @@ abstract class Model implements ArrayAccess, Arrayable, Jsonable, JsonSerializab
 
     /**
      * Save to sevDesk
-     * @todo
      *
      * @return mixed
      */
-    public function update($id)
+    public function update()
     {
-        if ($this->collection == null)
-            $this->all();
+        $this->setDefaults();
 
-        $object = $this->collection->firstWhere('id', $id);
-        $object->setDefaults();
-        $object = SevDeskApi::updateToSevDesk($this->objectName, $object);
+        $object = SevDeskApi::updateToSevDesk($this->objectName, $this->getAttributes());
 
         return $object;
     }
 
     /**
      * Save to sevDesk
-     * @todo
      *
      * @return mixed
      */
-    public function delete($id)
+    public function delete()
     {
-        if ($this->collection == null)
-            $this->all();
-
-        $object = $this->collection->firstWhere('id', $id);
-        $object = SevDeskApi::deleteFromSevDesk($this->objectName, $object);
-
-        return $object;
+        return SevDeskApi::deleteFromSevDesk($this->objectName, $this->attributes['id']);
     }
 
     /**

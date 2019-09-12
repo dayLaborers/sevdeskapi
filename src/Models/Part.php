@@ -4,10 +4,15 @@ namespace Daylaborers\Sevdeskapi\Models;
 
 class Part extends Model
 {
+    /**
+     * The sevDesk Objectname
+     *
+     * @var array
+     */
     public $objectName = 'Part';
 
     /**
-     * Overr
+     * Overrice parent::save() to set PartNumber
      *
      * @return mixed
      */
@@ -29,10 +34,15 @@ class Part extends Model
     /**
      * @param int $unit
      */
-    public function setUnityAttribute(int $unit)
+    public function setUnityAttribute($unit)
     {
+        $unitId = $unit;
+
+        if (is_array($unit))
+            $unitId = $unit['id'];
+
         $this->attributes['unity'] =[
-            'id'         => $unit,
+            'id'         => $unitId,
             'objectName' => 'Unity'
         ];
     }
